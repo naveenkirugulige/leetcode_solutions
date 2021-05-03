@@ -1,0 +1,28 @@
+/**
+ * @param {number} x
+ * @return {number}
+ */
+var reverse = function(x) {
+    let a=x.toString()
+   
+    if(a[0]==='-'){
+        var b=a.substring(1)
+        let val= '-'+b.split("").reverse().join("")
+         if(parseInt(val)<-2147483648){
+        return 0
+    }
+        else{
+            return val
+        }
+    }
+    else{
+    let val= a.split("").reverse().join("")
+    if(parseInt(val)>2147483646){
+        return 0
+    }
+        else{
+            return val
+        }
+    }
+    
+};
