@@ -1,0 +1,23 @@
+/**
+ * @param {string} s
+ * @param {number} numRows
+ * @return {string}
+ */
+var convert = function(s, numRows) {
+  if (numRows === 1) {
+    return s;
+  } else {
+    const rows = [...new Array(numRows)].map(_ => []);
+    var isZigging = true;
+    let y = 0;
+    for (let i = 0; i < s.length; i++) {
+      const char = s[i];
+      rows[y].push(char);
+
+      if (y === numRows - 1) isZigging = false;
+      if (y === 0) isZigging = true;
+      y = isZigging ? y + 1 : y - 1;
+    }
+    return rows.reduce((string, row) => string + row.join(''), '');
+  }
+};
