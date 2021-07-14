@@ -1,0 +1,21 @@
+/**
+ * @param {number[]} height
+ * @return {number}
+ */
+var maxArea = function(height) {
+    var max=0
+    let i=0
+    let j=height.length
+    
+    while(i!==j){
+         
+        let min=height[i]<height[j-1]?height[i]:height[j-1]
+        max=max>min*(j-i-1)?max:min*(j-i-1)
+        height[i]<height[j-1]?i++:j--
+        
+    }
+   
+    
+    return max
+    
+};
