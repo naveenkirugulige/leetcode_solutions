@@ -1,0 +1,22 @@
+const letCombinationRecursive=(result,digits,current,index,mapping)=>{
+    if(index===digits.length){
+        result.push(current)
+        return
+    }
+    
+    let letters=mapping[parseInt(digits.charAt(index))]
+    for(let i=0 ; i<letters.length;i++){
+        letCombinationRecursive(result,digits,current+letters.charAt(i),index+1,mapping)
+    }
+}
+var letterCombinations = function(digits) {
+    
+    let result=[]
+    if(digits===null||digits.length===0) return result
+    
+    let mapping=["0","1","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"]
+    
+    letCombinationRecursive(result,digits,"",0,mapping)
+    return result
+    
+};
