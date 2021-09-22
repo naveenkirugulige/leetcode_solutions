@@ -1,0 +1,25 @@
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(nums, target) {
+    var map = {}
+    
+    for(var i=0; i<nums.length;i++){
+        var first=nums[i]
+        var dif=target-first
+       
+        if(map[dif]>=0){
+           
+            return [map[dif],i]
+        }
+        else{
+            map[first]=i
+            
+            
+        }
+        
+    }
+   
+};
