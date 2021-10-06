@@ -1,0 +1,24 @@
+/**
+ * @param {number} n
+ * @return {string[]}
+ 
+ 
+ */
+
+const backtrack= function(output_arr,cur,open,close,max){
+    
+    if(cur.length === max*2) {
+       output_arr.push(cur)
+        return
+       }
+    if(open<max) backtrack(output_arr,cur+"(",open+1,close,max)
+    if(close<open) backtrack(output_arr,cur+")",open,close+1,max)
+}
+
+var generateParenthesis = function(n) {
+    let output_arr=[]
+    backtrack(output_arr,"",0,0,n)
+    
+    return output_arr
+  
+};
